@@ -1,68 +1,144 @@
-Document-Bootstrap
-==================
+# Reference of the JavaScript API
 
-A Boilerplate HTML page that incorporates JavaScript libraries, jQuery plugins, and Twitter Bootstrap to save developers time when creating an open-source project page.
+## Overview
 
-[Homepage](http://gregfranko.com/Document-Bootstrap/)
+#### Modules
+UserJoy allows you to categorize your app into modules, i.e. for a task management app, these could be 'Team' module, 'Task' module.
 
-**Notable Features**
+#### Events
+Every module should have a set of events, i.e. for the 'Team' module, events could be  'Created New Team', 'Added Team Member' etc.
 
-   - Responsive Design
+#### Properties
+You can pass an optional properties object alongwith the event, i.e. for the 'Team' module, this could be, { total_members: 11 } etc.
 
-   - Table of Contents Support
 
-##Browser Support
-IE8+, Firefox 11+, Chrome, Safari 4+
+## Javascript API
 
-##Getting Started
-1.  If you want to create a project page for your project, customize documentation.html to fit your project
-2.  That's it!
 
-##Forking
-If you find that you need a feature that Document-Bootstrap does not currently support, either let me know via the Document-Bootstrap issue tracker, or fork Document-Bootstrap on Github.
+### Identify
 
-##Change Log
+```js
+userjoy.identify(properties, callback)
+```
 
-`0.5.0` - December 19, 2013
-- Removed the custom download page
-- Removed the Github Repo embed
-- Updated DownloadBuilder.js and Tocify.js
-- Cleaned up a few of the styles
+Identify the logged in user
 
-`0.4.1` - (alpha) December 6, 2013 (Ilija Injac)
-- Updated to [Twitter Bootstrap 3](http://twitter.github.com/bootstrap/)
-- Updated to [jQuery 2.0.3](http://www.jquery.com)
-- Updated to [jQueryUI 1.10.3](http://www.jqueryui.com)
-- Added [Bootswatch](http://bootswatch.com/) themes directory
-- Added [Rainbow](http://craig.is/making/rainbows/) syntax highlighter
+##### Params
 
-`0.4.0` - April 5, 2013
+name       | required  | type      | description
+-----      | ------    | -----     | ------
+properties | yes       | Object    | Attributes of the user such as email, name, user_id etc.
+callback   | no        | Function  | Optional function to be called after the `userjoy.identify` call
 
-- Updated all libs and **removed History.js**
+##### Special Properties
 
-`0.3.0` - October 23, 2012
+name       | required  | type      | description
+-----      | ------    | ------    | ----------
+email      | yes       | String    | email address of the logged in user
+unique_id  | no        | String    | unique user id, should be database id
+status     | yes       | String    | trial / free / paying / cancelled
+plan       | no        | String    | name of the plan
 
-- Updated to [jQuery 1.8.2](http://jquery.com)
-- Updated to [Tocify 1.0.0](http://gregfranko.com/jquery.tocify.js/)
 
-`0.2.0` - August 21, 2012
+### Company
 
-- Updated to [Twitter Bootstrap 2.1](http://twitter.github.com/bootstrap/)
-- Updated to [Tocify 0.5.0](http://gregfranko.com/jquery.tocify.js/)
-- Updated to [jQuery 1.8.0](http://www.jquery.com)
-- Updated to [jQueryUI 1.8.23](http://www.jqueryui.com)
-- Added [Github-jQuery-Repo-Widget](https://github.com/JoelSutherland/GitHub-jQuery-Repo-Widget)
-- Added [History.js](https://github.com/balupton/History.js/)
-- Updated CSS styles
+```js
+userjoy.company(properties, callback)
+```
 
-`0.1.0` - August 8, 2012
+Identify the company/team/organization that the logged in user belongs to
 
-- Initial Document-Bootstrap release.  Added documentation.
+##### Params
 
-**Contributors**
+name       | required  | type      | description
+-----      | ------    | -----     | ------
+properties | yes       | Object    | Attributes of the company such as name, members etc.
+callback   | no        | Function  | Optional function to be called after the `userjoy.company` call
 
-Greg Franko - [@gfranko](https://github.com/gfranko)
+##### Special Properties
 
-## License
-Copyright (c) 2012 Greg Franko  
-Licensed under the MIT license.
+name       | required  | type      | description
+-----      | ------    | ------    | -----
+unique_id  | yes       | String    | unique company id, should be database id
+name       | no        | String    | name of the company
+status     | yes       | String    | trial / free / paying / cancelled
+plan       | yes       | String    | name of the plan
+
+
+### Page
+
+```js
+userjoy.page(module, name, properties, callback)
+```
+
+Track a pageview.
+
+##### Params
+
+name       | required  | type      | description
+-----      | ------    | -----     | ------
+module     | no        | String    | Name of the product module, i.e. 'Team', 'Tasks', 'Billing' etc.
+name       | yes       | String    | Name of the event, i.e. 'Added New Member', 'Created New Task', 'Upgraded Plan' etc
+properties | no        | Object    | Additional properties for the event, i.e. { total_members: 11 } etc
+callback   | no        | Function  | Optional function to be called after the `userjoy.track` call
+
+
+##### Reserved Properties (Do Not Send)
+
+name       | description
+-----      | ------
+name       | already being sent as the first / second param
+module     | already being sent as the first param
+
+
+
+### Track
+
+```js
+userjoy.track(module, name, properties, callback)
+```
+
+Track an event performed by the user.
+
+##### Params
+
+name       | required  | type      | description
+-----      | ------    | -----     | ------
+module     | no        | String    | Name of the product module, i.e. 'Team', 'Tasks', 'Billing' etc.
+name       | yes       | String    | Name of the event, i.e. 'Added New Member', 'Created New Task', 'Upgraded Plan' etc
+properties | no        | Object    | Additional properties for the event, i.e. { total_members: 11 } etc
+callback   | no        | Function  | Optional function to be called after the `userjoy.track` call
+
+
+### Track_Link
+
+```js
+userjoy.track_link(links, name, callback)
+```
+
+`track_link` is a helper method to help you track url clicks.
+
+##### Params
+
+name       | required  | type       | description
+-----      | ------    | -----      | ------
+links      | yes       | DOM Element| DOM Element representing the link(s), i.e. `document.getElementById('new_link')`
+name       | yes       | String     | Name of the event, i.e. 'Clicked Billing Link' etc
+callback   | no        | Function   | Optional function to be called after the `userjoy.track_link` call
+
+
+### Track_Form
+
+```js
+userjoy.track_form(forms, callback)
+```
+
+`track_form` is a helper method to help you track form submissions.
+
+##### Params
+
+name       | required  | type       | description
+-----      | ------    | -----      | ------
+forms      | yes       | DOM Element| DOM Element representing the link(s), i.e. `document.getElementById('new_form')`
+name       | yes       | String     | Name of the event, i.e. 'Submitted Billing Form' etc
+callback   | no        | Function   | Optional function to be called after the `userjoy.track_link
