@@ -61,3 +61,13 @@ pre .line .line-number {
 html * {
   font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+/* override default li font size to match the normal page font size */
+li {
+  font-size: 18px;
+}
+
+/* override the default tocify li font size */
+.tocify-subheader li {
+  font-size: 16px;
+}

@@ -387,9 +387,52 @@ userjoy.track(name, callback)
                         engagement_score = 100*(total_usage_of_user - min_usage)/(max_usage - min_usage)
                     </div>
                     <p>The engagement score of all users is updated every day.</p>
-
-
+                    <!-- ENGAGEMENT SCORE : END -->
                     <br>
+
+                    <!-- HEALTH SEGMENT : START -->
+
+                    <h2>Health Segments</h2>
+                    <br>
+
+                    <p>
+                    There are three special segments called <strong>Good Health</strong>, <strong>Average Health</strong> and <strong>Bad Health</strong> which are pre-defined when you create a new app.
+                    </p>
+                    <br>
+
+                    <p>
+                    By default, UserJoy defines:
+                    <ul>
+                        <li>‘Poor Health’ as 33% of your users with the lowest engagement score (0-33)</li>
+                        <li>‘Average Health’ as middle 34% of your users according to engagement score (34-67)</li>
+                        <li>‘Good Health’ as 33% of your users with the highest engagement score (67-100)</li>
+                    </ul>
+                    </p>
+                    <br>
+
+                    <p>
+                    You may update the definitions of these health segments based on the requirements of your application. For example, you may define ‘Good Health’ as users who have engagement score greater than 80, and have also done ‘Submitted form login-form’ within a day.
+                    </p>
+                    <br>
+
+                    <p>
+                    User health is updated every day. The health segments are evaluated and assigned  in the following order:
+                        <ol>
+                            <li>Good Health</li>
+                            <li>Average Health</li>
+                            <li>Poor Health</li>
+                        </ol>
+                    </p>
+                    <br>
+
+                    <p>
+                    Therefore, the ‘Poor Health’ segment gets a preference over the ‘Average Health’ segment, that then gets a preference over the ‘Good Health’ segment.
+                    </p>
+                    <br>
+                    <p>
+                    It means that if a user a user matched both ‘Poor Health’ and ‘Good Health’ segments, then he will be considered to be in 'Poor Health'.
+                    </p>
+
                 </div>
             </div>
             <!--/row-->
