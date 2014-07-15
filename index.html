@@ -78,6 +78,10 @@
                     <!-- INSTALLATION : START -->
                     <h2>Installation</h2>
                     <br>
+                    <p>
+                        After signing up for UserJoy, we provide you a snippet of Javascript code that you need to add to every page on your web app. Follow the steps below to install UserJoy on your app:
+                    </p>
+                    <br>
                     <ol>
                         <li>
                             <p>Paste this code before <code>&lt;/body&gt;</code> on every page</p>
@@ -133,7 +137,7 @@
                             </code>
                         </pre>
                         <li>
-                        <p>Review the <b>TODO</b> comments and edit the code</p>
+                        <p>Review the <b>TODO</b> comments, and edit the code to pass the correct values for the logged in user</p>
                         </li>
                         <br>
                         <li>
@@ -147,6 +151,12 @@
 
                     <!-- JAVASCRIPT API : START -->
                     <h2>Javascript API</h2>
+                    <br>
+                    <p>
+                        To track all actions being carried out by a user, you must call the <code>userjoy.identify</code> api call with a set of properties. We require that you pass the ‘email’, ‘joined’ and ‘status’ properties.
+
+                        If you allow your users to change their email ids, then you must also pass the ‘user_id’ property to uniquely identify a user. This could be primary key of the user on your database, or some other id that uniquely identifies him.
+                    </p>
                     <br>
                     <h3>Identify</h3>
                     <br>
@@ -356,6 +366,27 @@ userjoy.track(name, callback)
                         </tbody>
                     </table>
                     <!-- JAVASCRIPT API : END -->
+
+                    <br>
+                    <!-- ENGAGEMENT SCORE : START -->
+                    <h2>Engagement Score</h2>
+                    <br>
+
+                    <p>
+                    The engagement score reflects the level of engagement of all your users. It is a normalized score (0-100) in accordance to the amount of time a user has spent on your application in the last 14 days. Your most engaged users have a score close to 100, and your least engaged users have a score close to 0. It is calculated as follows:
+                    </p>
+                    <br>
+                    <div class="well">
+                        max_usage = maximum total time spent by any single user in the last 14 days
+                        <br>
+                        min_usage = minimum total time spent by any single user in the last 14 days
+                        <br>
+                        <br>
+                        For a user,
+                        <br>
+                        engagement_score = 100*(total_usage_of_user - min_usage)/(max_usage - min_usage)
+                    </div>
+                    <p>The engagement score of all users is updated every day.</p>
 
 
                     <br>
