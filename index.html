@@ -366,8 +366,66 @@ userjoy.track(name, callback)
                         </tbody>
                     </table>
                     <!-- JAVASCRIPT API : END -->
+                    <br>
+
+
+                    <!-- SEGMENTING : START -->
+                    <h2>Segmenting</h2>
+                    <br>
+                    <p>UserJoy allows you to segment your users based on events and attributes.</p>
+                    <br>
+
+                    <h3>Events</h3>
 
                     <br>
+
+                    <p>Every tracked action of the user is counted as an event.</p>
+
+                    <br>
+
+                    <h3>Attributes</h3>
+
+                    <br>
+
+                    <p>Properties associated with a user are called attributes, e.g. ‘joined’ time, ‘last session’ time, ‘name’, ‘email’, ‘plan’, ‘revenue’ etc.</p>
+
+                    <br>
+
+                    <h3>Types of filters</h3>
+
+                    <br>
+
+                    <table class="table table-striped table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Has done</td>
+                                <td>To get users who have carried out an action in the given time frame</td>
+                            </tr>
+                            <tr>
+                                <td>Has not done</td>
+                                <td>To get users who have not carried out an action in the given time frame</td>
+                            </tr>
+                            <tr>
+                                <td>Count</td>
+                                <td>To get users who have carried out an action a certain number of times in the given time frame</td>
+                            </tr>
+                            <tr>
+                                <td>Attribute filters</td>
+                                <td>To get users whose attribute matches the criteria set by the filter, e.g. os (operating system) equals ‘windows’</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- SEGMENTING : END -->
+
+
+                    <br>
+
+
                     <!-- ENGAGEMENT SCORE : START -->
                     <h2>Engagement Score</h2>
                     <br>
@@ -390,8 +448,8 @@ userjoy.track(name, callback)
                     <!-- ENGAGEMENT SCORE : END -->
                     <br>
 
-                    <!-- HEALTH SEGMENT : START -->
 
+                    <!-- HEALTH SEGMENT : START -->
                     <h2>Health Segments</h2>
                     <br>
 
@@ -432,6 +490,8 @@ userjoy.track(name, callback)
                     <p>
                     It means that if a user a user matched both ‘Poor Health’ and ‘Good Health’ segments, then he will be considered to be in 'Poor Health'.
                     </p>
+                    <!-- HEALTH SEGMENT : END -->
+
 
                 </div>
             </div>

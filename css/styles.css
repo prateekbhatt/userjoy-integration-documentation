@@ -71,3 +71,8 @@ li {
 .tocify-subheader li {
   font-size: 16px;
 }
+
+/* h4 font size was becoming equal to the page font size i.e 18px */
+h4 {
+  font-size: 20px;
+}
