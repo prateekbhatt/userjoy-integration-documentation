@@ -56,3 +56,8 @@ span.note {
 pre .line .line-number {
   display: none;
 }
+
+/*fonts*/
+html * {
+  font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
