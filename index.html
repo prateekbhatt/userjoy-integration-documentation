@@ -492,7 +492,33 @@ userjoy.track(name, callback)
                     </p>
                     <!-- HEALTH SEGMENT : END -->
 
+                    <br>
 
+
+                    <!-- MESSAGING : START -->
+                    <h2>Messaging</h2>
+
+                    <br>
+
+                    <h3>Message-Box</h3>
+                    <br>
+
+                    <p>
+                    By default, UserJoy puts a little icon with a ‘?’ mark on it, on all your pages, when the user is logged in. Clicking this opens the message-box where the user can send you support / feedback etc messages.
+                    </p>
+
+                    <br>
+
+                    <p>
+                    To switch off the default message-box icon, go to the App settings and in ‘Widget Settings’, turn the switch off.
+                    </p>
+
+                    <br>
+
+                    <p>
+                    You can also trigger the message-box with any custom element on your pages by using the <code>userjoy.showFeedback()</code> function call.
+                    </p>
+                    <!-- MESSAGING : END -->
                 </div>
             </div>
             <!--/row-->
@@ -513,15 +539,20 @@ userjoy.track(name, callback)
         <script src="js/jquery.tocify.min.js"></script>
         <script src="js/prettify.js"></script>
         <script type="text/javascript">
-            $(function() {
-            $("#toc").tocify({ selectors: "h2, h3, h4", scrollTo: 60, highlightOffset: 60, extendPage: true });
+        $(function() {
+            $("#toc").tocify({
+                selectors: "h2, h3, h4",
+                scrollTo: 60,
+                highlightOffset: 60,
+                extendPage: true
+            });
             prettyPrint();
             $(".optionName").popover({ trigger: "hover", container: "body" });
             $("a[href='#']").click(function(event) {
             event.preventDefault();
             });
             Rainbow.color();
-            });
+        });
         </script>
     </div>
 </body>
