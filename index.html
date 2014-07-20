@@ -441,16 +441,18 @@ userjoy.track(name, callback)
                     </p>
                     <br>
                     <div class="well">
-                        max_usage = maximum total time spent by any single user in the last 14 days
+                        user_avg_usage = average time spent by the user over the last 14 days
                         <br>
-                        min_usage = minimum total time spent by any single user in the last 14 days
+                        max_avg_usage = maximum average time spent by any user over the last 14 days
+                        <br>
+                        min_avg_usage = minimum average time spent by any user over the last 14 days
                         <br>
                         <br>
-                        For a user,
+                        For the user,
                         <br>
-                        engagement_score = 100*(total_usage_of_user - min_usage)/(max_usage - min_usage)
+                        engagement_score = 100*(user_avg_usage - min_avg_usage)/(max_avg_usage - min_avg_usage)
                     </div>
-                    <p>The engagement score of all users is updated every day.</p>
+                    <p class="alert alert-info" role="alert">The engagement score of all users is updated every day.</p>
                     <!-- ENGAGEMENT SCORE : END -->
                     <br>
 
